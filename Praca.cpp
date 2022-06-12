@@ -2,8 +2,8 @@
 #include <string>
 #include <fstream>
 #include <random> // testing library for better randomness
-#include "../Podatnik.h"
-
+#include "Podatnik.h"
+#include "Lista.h"
 using namespace std;
 
 int main(){
@@ -32,11 +32,24 @@ uniform_int_distribution<> dist(0,9);
                 }
                 cout << "Enter company name: ";
                 getline(cin, CompanyName);
-                File_Taxpayers << NIP << " " << CompanyName << "\n";
+                if(!CompanyName.empty())
+                File_Taxpayers << NIP << " " << CompanyName<<endl;
             }
         }else cout << "Couldn't open the file" << endl;
         File_Taxpayers.close();
         ///File close, end input
     }
+    ///Start reading from file
+    ifstream Tax_File("MyData.txt");
+    if(Tax_File.good()){
+        Lista ListOfTaxPaxers;
+        string NIPandName;
+        while(getline(Tax_File,NIPandName)){
+            TaxPayer Payer(NIPandName);
+            ListOfTaxPaxers.wstaw(Payer);
+        }
+        ListOfTaxPaxers.wypisz();
+    }
+    Tax_File.close();
     return 0;
 }
