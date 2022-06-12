@@ -49,6 +49,7 @@ uniform_int_distribution<> dist(0,9);
             ListOfTaxPaxers.wstaw(Payer);
         }
         ListOfTaxPaxers.wypisz();
+        ListOfTaxPaxers.split_to_files();
     }
     Tax_File.close();
     return 0;

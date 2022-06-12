@@ -10,7 +10,7 @@ using namespace std;
 
 struct Lista {
 private:
-    int Counter=0;
+
     struct Node{
         string Dane;
         Node *nast;
@@ -21,9 +21,11 @@ private:
     };
     Node *pocz = nullptr;
 public:
+    int Counter=0;
     ~Lista();
     void wstaw (TaxPayer &);
     void wypisz();
+    void split_to_files();
 };
 
 

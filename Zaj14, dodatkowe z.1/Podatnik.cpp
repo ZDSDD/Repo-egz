@@ -16,9 +16,9 @@ string TaxPayer::getName(){
 }
 TaxPayer::TaxPayer(const string& num_name){
     try {
-        if (num_name.length() < 10)throw runtime_error("Bad data format. NIP should have 10 characters");
-        if (num_name.length() < 13)throw runtime_error("No name of the company");
+        if (num_name.length() < 9)throw runtime_error("Bad data format. NIP should have 10 characters");
+        if (num_name.length() < 10)throw runtime_error("No name of the company");
         NIP = num_name.substr(0, 9);
-        Name = num_name.substr(10);
+        Name = num_name.substr(11);
     }catch (exception &e){cout << e.what()<<endl;}
 }
