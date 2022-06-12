@@ -12,7 +12,7 @@ using namespace std;
 
 struct TaxPayer {
 private:
-    string PID;
+    string NIP;
     string Name;
 public:
     TaxPayer()=default;
@@ -22,7 +22,7 @@ public:
 /*    void setPID(string);
     void setName(string);*/
 
-    string getPID();
+    string getNIP();
     string getName();
 };
 

@@ -17,7 +17,7 @@ Lista::~Lista() {
 void Lista::wstaw(TaxPayer &Payer) {
     string PID_Name;
     if(Payer.getName().length() == 0)return;
-    PID_Name = Payer.getPID() + " " + Payer.getName();
+    PID_Name = Payer.getNIP() + " " + Payer.getName();
     Node *Nowy = new Node(PID_Name);
     if(pocz == nullptr)
     pocz = Nowy;

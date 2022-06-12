@@ -14,7 +14,7 @@ mt19937 gen(rd());
 uniform_int_distribution<> dist(0,9);
 /* End of setting */
 
-    string NIP="00000000000"; //11 digits
+    string NIP="0000000000"; //10 digits
     string CompanyName;
 
     int Companies_to_add=0;
@@ -27,7 +27,7 @@ uniform_int_distribution<> dist(0,9);
             for (i = 0, j = 0; i < Companies_to_add; i++, j = 0) {
                 NIP.replace(j, 1, to_string(dist(gen)));
                 if (NIP[0] == '0')NIP[0] = '1';
-                for (j = 1; j < 11; j++) {
+                for (j = 1; j < 10; j++) {
                     NIP.replace(j, 1, to_string(dist(gen)));
                 }
                 cout << "Enter company name: ";
