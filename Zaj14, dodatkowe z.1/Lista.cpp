@@ -10,6 +10,7 @@ Lista::~Lista() {
     Node *Killer;
     while(pocz != nullptr){
         Killer = pocz;
+
         pocz = pocz ->nast;
         delete Killer;
     }
