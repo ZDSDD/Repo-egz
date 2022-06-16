@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include "List.h"
+#include "IBAN_Check.h"
 using namespace std;
 
 
@@ -30,7 +31,9 @@ if(FWI.good()){
             /*48 is code for '0' in ASCII you can check it by printf("%d",int('0'));
              *Converting numbers in int to the char format*/
         }
-        FWI << IBAN << endl;
+            if (checkControlDigit(IBAN))
+                //if (checkControlDigits(IBAN))
+                    FWI << IBAN << endl;
     }
 }else{
     cout << "Couldn't open the file"<<endl;
@@ -65,7 +68,6 @@ FWI_read.close();
             F2490 << *three << endl;
             three++;
         }
-
         F1020.close();
         F1140.close();
         F2490.close();
