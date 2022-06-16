@@ -43,7 +43,36 @@ if(FWI_read.good()){
 while(getline(FWI_read,IBAN)){
     MyList.insert(IBAN,28);
 }
-    MyList.printList();
+FWI_read.close();
+
+    ofstream F1020("1020.txt");
+    ofstream F1140("1140.txt");
+    ofstream F2490("2490.txt");
+    if(F1020.is_open()&&F1140.is_open()&&F2490.is_open()){
+        string *one=MyList.Give("1020.txt");
+        string *two=MyList.Give("1140.txt");
+        string *three=MyList.Give("2490.txt");
+
+        while(*one != "NULL"){
+            F1020 << *one << endl;
+            one++;
+        }
+        while(*two != "NULL"){
+            F1140 << *two << endl;
+            two++;
+        }
+        while(*three != "NULL"){
+            F2490 << *three << endl;
+            three++;
+        }
+
+        F1020.close();
+        F1140.close();
+        F2490.close();
+    }else cout << "Error opening files." << endl;
+
 }
+
+
 return 0;
 }

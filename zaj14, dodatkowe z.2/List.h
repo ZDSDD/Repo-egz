@@ -25,6 +25,7 @@ public:
     List()=default;
     void insert(const string&,int);
     void printList();
+    string *Give(string);
 };
 
 

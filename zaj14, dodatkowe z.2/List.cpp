@@ -133,3 +133,32 @@ void List::printList() {
         Runner = Runner->nast;
     }
 }
+string* List::Give(string BankID) {
+       Node *Biegacz=pocz;
+       int i=0;
+    while(Biegacz != nullptr){
+        if(Biegacz->iban[4]==BankID[0] &&
+        Biegacz->iban[5]==BankID[1] &&
+        Biegacz->iban[6]==BankID[2] &&
+        Biegacz->iban[7]==BankID[3]){
+            i++;
+        }
+        Biegacz=Biegacz->nast;
+    }
+    string *arr;
+    arr = new string[i+1];
+    i=0;
+    Biegacz = pocz;
+    while(Biegacz!= nullptr) {
+        if (Biegacz->iban[4] == BankID[0] &&
+            Biegacz->iban[5] == BankID[1] &&
+            Biegacz->iban[6] == BankID[2] &&
+            Biegacz->iban[7] == BankID[3]) {
+            arr[i] = Biegacz->iban;
+            i++;
+        }
+        arr[i] = "NULL"; // it's a bad practice, but I couldn't find any better solution to find the end of an array
+        Biegacz=Biegacz->nast;
+    }
+    return arr;
+}
