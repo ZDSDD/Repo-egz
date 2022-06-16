@@ -20,9 +20,7 @@ List::~List() {
 void List::insert(const string &IBAN, int IBAN_LEN) {
 
     /*Inserting with sort*/
-    cout << "Dodaje " << IBAN << "\n_________\n";
-    printList();
-    cout << "\n_________\n";
+
     counter++;
     Node *New = new Node(IBAN);
     if (pocz == nullptr) {
